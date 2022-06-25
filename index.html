@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axel Sengkey - 001202000114 - Class 2 - IT - Web Programming - Final Exam</title>
+    <link rel="shortcut icon" href="images/my-signature-logo.png" type="image/x-icon">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <!-- Bootstrap|| .container are used to contain, pad, and (sometimes) center the content within them -->
+        <!-- Bootstrap|| It is required when using Bootstrap default grid system -->
+        <div class="container">
+            <!-- Bootstrap|| Navbars require a wrapping .navbar for color scheme classes -->
+            <!-- Bootstrap|| Use fixed-top to give position: fixed, positioned on the top -->
+            <!-- Bootstrap|| Color scheme classes: -->
+            <!-- Bootstrap|| .navbar-light for dark font color, .navbar-dark for light font color -->
+            <!-- Bootstrap|| .bg-light for light background color, .bg-dark for dark background color -->
+            <nav id="navbar" class="navbar fixed-top navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img id="navLogo" src="images/my-signature-logo.png" width="50" height="50" class="d-inline-block align-text-middle" alt="Axel Sengkey">
+                    Axel Sengkey
+                </a>
+                <div class="navbar-nav">
+                    <!-- Bootstrap|| .nav-link is to give a hover effect that indicate a link -->
+                        <span id="dark" class="nav-link" title="Dark mode">
+                            <!-- Fontawesome|| .fa-stack is used to stack two fontawesome icons -->
+                            <!-- Fontawesome|| I use this class only to match the margin and padding with the next stacked icons -->
+                            <span id="darkIcon" class="fa-stack" style="vertical-align: middle;">
+                                <!-- Fontawesome|| .fa-stack-1x is for the stacked icon size -->
+                                <!-- Fontawesome|| .fas .fa-moon is a fontawesome solid moon icon -->
+                                <i class="fas fa-moon fa-stack-1x"></i>
+                            </span>
+                        </span>
+                </div>
+                <div class="navbar-nav">
+                        <span id="music" class="nav-link" title="Play music">
+                                <span id="musicIcon" class="fa-stack" style="vertical-align: middle;">
+                                    <!-- Fontawesome|| .fas .fa-music is a fontawesome solid music icon -->
+                                    <i class="fas fa-music fa-stack-1x"></i>
+                                    <!-- Fontawesome|| .fas .fa-slash is a fontawesome solid slash icon -->
+                                    <i id="slash" class="fas fa-slash fa-stack-1x"></i>
+                                </span>
+                        </span>
+                </div>
+                <!-- Bootstrap|| .ml-auto is to push the two previous elements to the left -->
+                <div id="searchInput" class="ml-auto">
+                    <!-- Bootstrap|| .input-group is to group two element -->
+                    <!-- Bootstrap|| .mb-~ is for the bottom margin -->
+                    <!-- Bootstrap|| .mb-2 is for the bottom margin of 2 -->
+                    <div class="input-group mb-2">
+                        <!-- Bootstrap|| .input-group-prepend is to add element to the beginning of the next element -->
+                        <div class="input-group-prepend">
+                            <!-- Bootstrap|| .input-group-text is for the text which will be prepend -->
+                            <!-- Fontawesome|| .fas .fa-search is a fontawesome solid search icon -->
+                            <div id="searchIcon" class="input-group-text"><i class="fas fa-search"></i></div>
+                        </div>
+                        <!-- Bootstrap|| .form-control is for the styling of form -->
+                        <input id="search" type="text" class="form-control bg-light" placeholder="Find your flowers">
+                    </div>
+                </div>
+                <!-- Bootstrap|| .p-2 is for the padding of 2 -->
+                <form id="buyFlowers" class="p-2">
+                    <!-- Bootstrap|| .form-row is to make a row of form -->
+                    <div class="form-row">
+                        <!-- Bootstrap|| Use .col-auto so that the columns only take up as much space as needed -->
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <input id="totalPrices" type="text" class="form-control" placeholder="Total Price" title="Your total price will be shown here" size="18">
+                                <!-- Bootstrap|| .input-group-append is to add element to the end of the next element -->
+                                <div class="input-group-append">
+                                    <div id="idrIcon" class="input-group-text">IDR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <!-- Bootstrap|| .btn .btn-success is for a green color of button (~-success = green) -->
+                            <!-- Fontawesome|| .fas .fa-shopping-basket is a fontawesome solid shopping basket icon -->
+                            <button id="buyFlowersBtn" type="submit" class="btn btn-success mb-2"><i class="fas fa-shopping-basket"></i> Buy Flowers</button>
+                        </div>
+                    </div>
+                </form>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Buying Form Pop-up -->
+    <!-- Bootstrap|| Use .d-flex .justify-content-center to horizontally justify content to the center -->
+    <div class="popup d-flex justify-content-center">
+        <div class="popup-content" id="buyingForm">
+            <!-- Fontawesome|| .far .fa-times-circle is a fontawesome regular times icon with circle -->
+            <div id="close"><i class="far fa-times-circle"></i></div>
+            <form id="sendForm" name="sendingForm" method="post">
+                <!-- Bootstrap|| By default, .form-group applies margin-bottom -->
+                <div class="form-group">
+                    <label for="inputName">Name</label>
+                    <input type="text" name="fName" class="form-control" id="inputName" placeholder="Loyal Customer">
+                </div>
+                <div class="form-row">
+                    <!-- Bootstrap|| .col-sm-~ is to set the column grid system, so that it will remain as the number set (.col-sm-'number') until the screen is small (sm) -->
+                    <!-- Bootstrap|| The total grid in a row is 12 -->
+                    <div class="form-group col-sm-6">
+                        <label for="inputNumber">Phone Number</label>
+                        <input type="text" name="fNumber" class="form-control" id="inputNumber" placeholder="xxxx-xxxx-xxxx">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" name="fEmail" class="form-control" id="inputEmail" placeholder="customer@example.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" name="fAddress" class="form-control" id="inputAddress" placeholder="Enter specific address">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-4">
+                        <label for="inputCity">City</label>
+                        <input type="text" name="fCity" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="inputProvince">Province</label>
+                        <input type="text" name="fProvince" class="form-control" id="inputProvince" placeholder="Province">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputPostal">Postal</label>
+                        <input type="text" name="fPostal" class="form-control" id="inputPostal" placeholder="Postal code">
+                    </div>
+                </div>
+                <input id="sendFlowersBtn" type="submit" class="btn btn-light" value="Send me the flowers!">
+            </form>
+        </div>
+    </div>
+    <!--  -->
+
+    <!-- Bootstrap|| .jumbotron is a lightweight, flexible component that can optionally extend the entire viewport to show messages  -->
+    <!-- Bootstrap|| .text-center is to align texts to the center -->
+    <section id="header" class="jumbotron text-center">
+        <div class="jum-background"></div>
+        <div class="hole d-flex justify-content-center">
+            <div class="circle"></div>
+            <div class="bg-color logo-background"></div>
+        </div>
+        <img id="headerLogo" src="images/my-signature-logo.png" width="150" height="150" alt="Axel Sengkey">
+        <h1 class="header-title display-1">Axel Sengkey</h1>
+        <h3 class="header-title" >Florist</h3>
+        <!-- Bootstrap|| .lead is to enlarge the <p> size -->
+        <p class="lead">Take your flowers, gladden your alive—or dead—loved one. The best flowers you can found, all together in here.</p>
+        <p class="lead">birthday&emsp;•&emsp;valentine&emsp;•&emsp;proposing&emsp;•&emsp;condolences&emsp;•&emsp;etc.</p>
+    </section>
+    
+    <!-- Bootstrap|| .py-5 is to set the top and bottom padding to 5 -->
+    <div class="content py-5">
+        <div class="container">
+            <!-- Bootstrap|| .row is to make a row -->
+            <div id="cards" class="row">
+                <div class="each-card col-md-4">
+                    <!-- Bootstrap|| .mb-4 is for the bottom margin of 4 -->
+                    <div id="card" class="card mb-4 card-back">
+                        <div class="d-flex justify-content-center">
+                            <a href="" target="_blank"><img id="img" src="" class="img bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" title=""></a>
+                        </div>
+                        <div class="card-body">
+                            <p class="name card-text" title="Name"></p>
+                            <p class="scientific card-text" title="Scientific Name"></p>
+                            <p class="family card-text" title="Family">Family: </p>
+                            <p class="price card-text" title="Price"><i class="fas fa-tag"></i> </p>
+                            <p class="stock card-text" title="Stock"><i class="fas fa-box"></i> </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="pick form-inline">
+                                    <!-- Bootstrap|| .col-sm-~ is to set the column grid system, so that it will remain as the number set (.col-sm-'number') until the screen is small (sm) -->
+                                    <!-- Bootstrap|| .mr-2 is for the right margin of 2 -->
+                                    <input class="pickNum form-control mb-2 mr-2" type="number" placeholder="qty" min="0" max="">
+                                    <!-- Bootstrap|| .btn .btn-sm is to make the button smaller -->
+                                    <!-- Bootstrap|| .btn .btn-outline-secondary is for a gray color of outline-only button (~-secondary = gray) -->
+                                    <!-- Bootstrap|| .btn-outline-~ will have a background color when it is hovered -->
+                                    <button class="form-control mb-2 mr-2 btn btn-sm btn-outline-secondary" type="button">Pick</button>
+                                    <div><span class="total-price"></span> IDR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="resetBtn" class="float">Reset picks</div>
+      
+    <!-- Bootstrap|| .text-muted will give a grayish text color -->
+    <footer id="footer" class="text-muted bg-color">
+        <div class="container">
+          <a id="backToTop" href="#" class="float">
+            <!-- Fontawesome|| .fas .fa-angle-double-up is a fontawesome solid double upwards angle icon -->
+            <span id="topText"></span> <i class="fas fa-angle-double-up"></i>
+          </a>
+          <p>Background song: 
+            Pyotr Ilyich Tchaikovsky –「Waltz of the Flowers」</p>
+          <p>Copyright &copy; <span id="year"></span> Axel Sengkey - 001202000114. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    
+
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
